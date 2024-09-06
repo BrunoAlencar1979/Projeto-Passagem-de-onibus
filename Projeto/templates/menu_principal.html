@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bem-vindo(a) ao Sistema de Passagens</h1>
+
+        <!-- Exibe o nome e CPF do usuário logado -->
+        <p>Nome: {{ usuario.nome }}</p>
+        <p>CPF: {{ usuario.cpf }}</p>
+
+        <ul>
+            <li><a href="/menu-viagens">Ver e Comprar Passagens</a></li>
+            <li><a href="/logout">Sair</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de Passagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Compra de Passagem</h1>
+
+        <p>Nome: {{ usuario.nome }}</p>
+        <p>CPF: {{ usuario.cpf }}</p>
+
+        <form id="viagem-form">
+            <label for="rota">Escolha uma rota:</label>
+            <select id="rota" name="rota">
+                <option value="">Selecione uma rota</option> <!-- Opção em branco -->
+                {% for rota, info in rotas.items() %}
+                <option value="{{ rota }}">{{ rota }} (R$ {{ info.preco }})</option>
+                {% endfor %}
+            </select><br><br>
+
+            <div id="warning-message"></div>
+
+            <label for="data_viagem">Data da viagem:</label>
+            <input type="date" id="data_viagem" name="data_viagem" required><br><br>
+
+            <label for="horario_embarque">Horário de embarque (HH:MM):</label>
+            <input type="time" id="horario_embarque" name="horario_embarque" required><br><br>
+
+            <button type="submit">Comprar Passagem</button>
+        </form>
+
+        <div id="ticket-message"></div>
+        <br>
+        <button onclick="window.location.href='/menu-principal'">Voltar ao Menu Principal</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

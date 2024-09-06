@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABK Bus Lines - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bem-vindo à ABK Bus Lines</h1>
+
+        <!-- Login de Usuário -->
+        <div id="login-container">
+            <h2>Login</h2>
+            <form id="login-form" action="/login" method="post">
+                <label>Email: <input type="email" name="email" required></label><br>
+                <label>Senha: <input type="password" name="senha" required></label><br>
+                <button type="submit">Entrar</button>
+            </form>
+            <a href="/cadastro"><button>Cadastro</button></a>
+            <a href="/forgot-password"><button>Esqueci a Senha</button></a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

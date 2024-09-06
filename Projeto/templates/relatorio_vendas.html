@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Vendas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Relatório de Vendas</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Rota</th>
+                    <th>Data da Compra</th>
+                    <th>Data da Viagem</th>
+                    <th>Horário de Embarque</th>
+                    <th>Horário de Chegada</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set total_vendas = 0 %}
+                {% for venda in vendas %}
+                <tr>
+                    <td>{{ venda.nome }}</td>
+                    <td>{{ venda.cpf }}</td>
+                    <td>{{ venda.rota }}</td>
+                    <td>{{ venda.data_compra }}</td>
+                    <td>{{ venda.data_viagem }}</td>
+                    <td>{{ venda.horario_embarque }}</td>
+                    <td>{{ venda.horario_chegada }}</td>
+                    <td>R$ {{ venda.preco }}</td>
+                </tr>
+                {% set total_vendas = total_vendas + venda.preco %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Total de Vendas: R$ {{ "%.2f"|format(total_vendas) }}</h3>
+
+        <br>
+        <button onclick="window.location.href='/admin'">Voltar ao Painel Admin</button>
+    </div>
+</body>
+
+</html>

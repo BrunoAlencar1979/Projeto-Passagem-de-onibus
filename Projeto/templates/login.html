@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ABK Bus Lines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Bem-vindo à ABK Bus Lines</h1>
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+            <button type="button" class="secondary" onclick="window.location.href='/cadastro'">Cadastro</button>
+            <button type="button" class="secondary" onclick="window.location.href='/esqueci-senha'">Esqueci a
+                Senha</button>
+        </form>
+    </div>
+</body>
+
+</html>
